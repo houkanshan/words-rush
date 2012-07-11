@@ -1,0 +1,295 @@
+/* common */
+html {
+    background: #e0e0e0;
+}
+body {
+    font-family: 'Neo Sans Pro', 'Microsoft Yahei';
+}
+#header {
+    margin: 5px auto;
+    width: 75%;
+
+    position: relative;
+}
+
+/* header */
+.logo{
+    width:100%;
+    text-align: center;
+}
+.home {
+    position: absolute;
+    display: block;
+    bottom: 13px;
+    left: 11px;
+
+    background:url(../img/home.png);
+    width: 24px;
+    height: 29px;
+}
+
+
+/* common box */
+#content
+{
+    width: 75%;
+    margin: 0 auto;
+
+    padding: 2px;
+    overflow: hidden;
+}
+
+.btn {
+    display: block;
+    cursor: pointer;
+}
+
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    z-index: 100;
+}
+.overlay-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+
+    background: rgba(0, 0, 0, .3);
+}
+.overlay-box {
+    width: 70%;
+    margin:25% auto 0 auto;
+}
+.dialog {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    background: white;
+    position: relative;
+
+    -webkit-transition: all 0.2s;
+    
+    overflow: hidden;
+    text-align: center;
+    padding: 10px 10px;
+}
+.dialog .close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    font-size: 20px;
+
+    color: #666;
+}
+
+.dialog.minium {
+    width: 0;
+    height: 0;
+    padding:0;
+}
+#overlay .btn {
+    display: inline-block;
+    width: 60%;
+    height: 30px;
+    line-height: 30px;
+
+    border-radius: 3px;
+    border: 1px solid #bbb;
+    background: #eee;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    
+    color: #666;
+}
+.by-email, 
+.by-name {
+    margin-bottom: 5px;
+}
+
+.slide {
+    width: 200%;
+}
+.page {
+    width: 50%;
+    float: left;
+
+    -webkit-transition: margin-left .5s;
+}
+.page.remove {
+    margin-left: -52%;
+}
+
+/* games */
+.box{
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid #e2e2e9;
+
+    padding: 5px 0px;
+}
+
+#games-list {
+    margin-bottom: 20px;
+}
+
+.title {
+    text-align: center;
+    padding-bottom: 10px;
+
+    color: rgb(198, 200, 203);
+    font-size: 20px;
+    font-weight: normal;
+}
+
+/*TODO: select not first*/
+.list .item {
+    position: relative;
+    display: block;
+    height: 50px;
+
+    padding: 2px 10px;
+    border-top: 1px solid #e2e2e9;
+}
+
+.list .item:active,
+#list .item:hover,
+#list .item:focus,
+#list .item:visited
+{
+    background: rgba(189, 193, 193, 0.2);
+}
+
+.game-item {
+    line-height: 50px;
+}
+/*.game-item .game-name {*/
+    /*font-size: 18px;*/
+/*}*/
+.game-item .game-player {
+    font-size: 20px;
+}
+.game-item .game-round {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -10px;
+
+    height: 20px;
+    line-height: 20px;
+    background: #aaa;
+    border-radius: 5px;
+    color: white;
+
+    text-align: center;
+    width: 60px;
+
+    -webkit-transition: all 1s;
+}
+
+.stat-answer .game-round {
+    background: #5B98EC;
+}
+.stat-ask .game-round {
+    background: #9CD5C5;
+}
+
+.btn{
+    display: block;
+    height: 25px;
+    line-height: 25px;
+
+    text-align: center;
+    font-size: 16px;
+    color: #aaa;
+    
+}
+
+#games-control .btn,
+.login-form .btn{ 
+    margin-bottom: 10px;
+}
+
+/*login*/
+.input {
+    display: block;
+    width: 90%;
+    height: 40px;
+    margin: 0 auto;
+
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 3px 7px;
+}
+
+.input {
+    margin-bottom: 10px;
+}
+
+.form .btn {
+    /* hack */
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+
+/* answer */
+#answer .quiz-word {
+    color: #666;
+}
+.answers-list .item,
+.search-list .item, 
+/*.question-words-list .item, */
+.wronglist-list .item{
+    text-align: center;
+    line-height: 50px;
+
+    color: #999;
+    font-size: 16px;
+}
+
+/* question */
+/*.question-words-list .item {*/
+    /*height: 30px;*/
+    /*line-height: 30px;*/
+/*}*/
+.question-pannel {
+    margin-bottom: 10px;
+}
+
+/* wrong list */
+.wronglist-wrapper .score .score-label {
+    color: #c6c8cb;
+    margin-right: 3px;
+}
+.wronglist-wrapper .score {
+    float: right;
+    line-height: 32px;
+    margin-right: 5px;
+
+    font-size: 16px;
+    color: #C24545;
+}
+
+.games-logout {
+    opacity: 0.8;
+    margin-top: 20px;
+}

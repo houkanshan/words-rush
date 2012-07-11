@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>对单词</title>
+        <script type="text/javascript" src="js/lib/zepto.js"></script> <script type="text/javascript" src="js/lib/juicer.js"></script> <script type="text/javascript" src="js/dialog.js"></script>
+        <script type="text/javascript" src="js/route.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/common.css" />
+        <link rel="stylesheet" href="css/components.css" />
+    </head>
+    <body>
+        <div id="header">
+            <div class="logo">
+                <img src="img/logo.png" alt="对单词" />
+            </div>
+            <a class="home" class="btn hidden"></a>
+        </div> <div id="content">
+            <div class="slide">
+            </div>
+        </div>
+        <div id="overlay" class="hidden">
+            <span class="overlay-back"></span>
+            <div class="overlay-box dialog minium">
+            </div>
+        </div>
+        <!--<div id="loading">-->
+            <!--<img src="" alt="" class="load-pic" />-->
+        <!--</div>-->
+        <div id="footer"></div>
+        <script id="tpl-dialog-creategame" type="text/template">
+            <h3 class="title">找人</h3>
+            <a class="by-email btn">通过email</a>
+            <a class="by-name btn">通过名字</a>
+            <a class="by-random btn">随机</a>
+            <a class="close">×</a>
+        </script>
+        <script id="tpl-dialog-searchemail" type="text/template">
+            <h3 class="title">找人</h3>
+            <input type="email" placeholder="Email" class="input search-email"/>
+            <a class="dialog-search btn">查找</a>
+            <a class="close">×</a>
+        </script>
+        <script id="tpl-dialog-searchname" type="text/template">
+            <h3 class="title">找人</h3>
+            <input type="TEXT" placeholder="Name" class="input search-name"/>
+            <a class="dialog-search btn">查找</a>
+            <a class="close">×</a>
+        </script>
+        <script id="tpl-dialog-searchresult" type="text/template">
+            <h3 class="title">找人</h3>
+            <ul class="list search-list">
+                <li data-id="${id}" class="item search-list-item">${nickname}</li>
+                <a class="close">×</a>
+            </ul>
+        </script>
+
+        <script id="tpl-main" type="text/template">
+            <div id="main" class="page ">
+                <div id="games-list" class="box">
+                    <h2 class="games-list-title title">游戏列表</h2>
+                    <ul class="list">
+                    </ul>
+                </div>
+                <div id="games-control">
+                    <a href="javascript:;" class="games-create btn box">创建游戏</a>
+                    <a href="javascript:;" class="games-wronglist btn box">成绩</a>
+                    <a href="javascript:;" class="games-logout btn box">注销</a>
+                </div>
+            </div>
+        </script>
+
+        <script id="tpl-game-item" type="text/template">
+            <div class="item game-item ${item.stateClass}" data-id="${item.id}">
+                <h3 class="game-name">${item.word}</h3>
+                <span class="game-player">${item.nickname}</span>
+                <span class="game-round">${item.stateStr}</span>
+            </div>
+        </script>
+
+        <script id="tpl-login" type="text/template">
+            <div id="login" class="page ">
+                <div class="login-form form">
+                    <input type="email" placeholder="Email" class="login-email input"/>
+                    <input type="password" placeholder="Password" class="login-pass input"/>
+                    <a href="javascript:;" class="login btn box">登录</a>
+                    <a href="javascript:;" class="signin btn box">注册</a>
+                </div>
+            </div>
+        </script>
+
+        <script id="tpl-signin" type="text/template">
+            <div id="signin" class="page ">
+                <div class="signin-form form">
+                    <input type="email" placeholder="Email" class="signin-email input"/>
+                    <input type="text" placeholder="Nickname" class="signin-nick input"/>
+                    <input type="password" placeholder="Password" class="signin-pass input"/>
+                    <input type="password" placeholder="Check your password" class="signin-repass input"/>
+                    <a href="javascript:;" class="signin btn box">注册</a>
+                </div>
+            </div>
+        </script>
+
+        <script id="tpl-answer" type="text/template">
+            <div id="answer" class="page ">
+                <div class="answer-wapper box">
+                    <h3 data-id="${id}" class="quiz-word title">${word}</h3>
+                    <ul class="answers-list list">
+                        <li data-section="0" class="item answer-item">A. ${choice[0]}</li>
+                        <li data-section="1" class="item answer-item">B.${choice[1]}</li>
+                        <li data-section="2" class="item answer-item">C. ${choice[2]}</li>
+                        <li data-section="3" class="item answer-item">D. ${choice[3]}</li>
+                    </ul>
+                </div>
+            </div>
+        </script>
+
+        <script id="tpl-question" type="text/template">
+            <div id="question" class="page">
+                <div class="question-pannel box">
+                    <input type="TEXT" name="word" placeholder="出个有难度的~" class="input question-word"/>
+                </div>
+                <a href="javascript:;" class="question-ask btn box">出题</a>
+            </div>
+        </script>
+
+        <script id="tpl-wronglist" type="text/template">
+            <div id="wronglist" class="page">
+                <div class="wronglist-wrapper box">
+                    <h3 class="quiz-word title">错词
+                    <div class="score">
+                    <span class="score-label ">得分</span>${score}
+                    </div>
+                    </h3>
+                    <ul class="list wronglist-list">
+                        {@each words as word}
+                    	<li class="item wronglist-item">${word}</li>
+                        {@/each}
+                    </ul>
+                </div>
+            </div>
+        </script>
+
+    </body>
+</html>
